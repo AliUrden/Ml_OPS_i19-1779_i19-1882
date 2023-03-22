@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@AliUrden 
-i191779
-/
-i191779_i191882_Banglore_House_Price_Prediction
-Public
-forked from Jaydeep9596/Bangalore_House_Price_Prediction
-Fork your own copy of i191779/i191779_i191882_Banglore_House_Price_Prediction
-Code
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-i191779_i191882_Banglore_House_Price_Prediction/.github/workflows/scan.yaml
-@AliUrden
-AliUrden Update scan.yaml
-Latest commit b5f2203 last month
- History
- 1 contributor
-54 lines (40 sloc)  1.58 KB
-
 name: "Code scanning - action"
 
 on: [push]
