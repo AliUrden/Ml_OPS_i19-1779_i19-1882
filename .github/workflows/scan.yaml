@@ -1,0 +1,84 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@AliUrden 
+i191779
+/
+i191779_i191882_Banglore_House_Price_Prediction
+Public
+forked from Jaydeep9596/Bangalore_House_Price_Prediction
+Fork your own copy of i191779/i191779_i191882_Banglore_House_Price_Prediction
+Code
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+i191779_i191882_Banglore_House_Price_Prediction/.github/workflows/scan.yaml
+@AliUrden
+AliUrden Update scan.yaml
+Latest commit b5f2203 last month
+ History
+ 1 contributor
+54 lines (40 sloc)  1.58 KB
+
+name: "Code scanning - action"
+
+on: [push]
+
+jobs:
+  CodeQL-Build:
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      security-events: write
+      pull-requests: read
+
+    steps:
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.102
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@main
+      # Override language selection by uncommenting this and choosing your languages
+      with:
+        languages: python
+        config-file: ./.github/workflows/scan.yaml
+
+    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
+    # If this step fails, then you should remove it and run the build manually (see below)
+    #- name: Autobuild
+    #  uses: github/codeql-action/autobuild@main
+
+    # ℹ️ Command-line programs to run using the OS shell.
+    # 📚 https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
+
+    # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
+    #    and modify them (or add more) to build your code if your project
+    #    uses a compiled language
+      
+    - name: Set up Python environment
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Build Python project
+      run: python mlops.ipynb build
+      
